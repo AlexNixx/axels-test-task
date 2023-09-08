@@ -1,4 +1,5 @@
 import {Card} from "react-bootstrap";
+import PropTypes from 'prop-types';
 import {StyledCard, StyledImage, StyledLink} from "./PropertyItemStyles";
 import {convertToUSAPrice} from "../../utils/price/convertToUSAPrice";
 
@@ -19,4 +20,12 @@ export const PropertyItem = ({id, image, title, price, address}) => {
             </StyledCard>
         </StyledLink>
     );
+}
+
+PropertyItem.propTypes = {
+    id: PropTypes.number,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    address: PropTypes.string
 }
