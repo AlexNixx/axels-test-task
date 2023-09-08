@@ -1,6 +1,6 @@
-import {PropertyItem} from "../../components/PropertyItem/PropertyItem";
-import {mockData} from "../../mockData/mockData";
-import {StyledCol, StyledContainer, StyledRow} from "./HomePageStyles";
+import { PropertyItem } from '../../components/PropertyItem/PropertyItem';
+import { mockData } from '../../mockData/mockData';
+import { StyledCol, StyledContainer, StyledRow } from './HomePageStyles';
 
 export const HomePage = () => {
     return (
