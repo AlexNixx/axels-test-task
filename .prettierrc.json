@@ -1,19 +1,13 @@
 {
-    "printWidth": 80,
+    "useTabs": false,
     "tabWidth": 4,
-    "singleQuote": true,
-    "semi": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
+    "printWidth": 80,
     "arrowParens": "always",
-    "endOfLine": "lf",
-    "overrides": [
-        {
-            "files": ["*.json", "*.md", "*.markdown", "*.yml", "*.yaml"],
-            "options": {
-                "printWidth": 100
-            }
-        }
-    ]
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "trailingComma": "none",
+    "endOfLine": "lf"
 }

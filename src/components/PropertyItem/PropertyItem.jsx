@@ -8,7 +8,7 @@ export const PropertyItem = ({ id, image, title, price, address }) => {
         <StyledLink to={`/property/${id}`}>
             <StyledCard>
                 <StyledImage
-                    variant="top"
+                    variant='top'
                     src={image[0]}
                     alt={`property ${title}`}
                 />

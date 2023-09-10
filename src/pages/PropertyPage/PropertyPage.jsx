@@ -20,22 +20,24 @@ export const PropertyPage = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, []);
 
+    if (!mockItem) return <p>Property not found</p>;
+
     return (
         <StyledContainer>
             <Stack gap={2}>
                 <Link to={'/'}>
-                    <StyledButton variant="dark">Back</StyledButton>
+                    <StyledButton variant='dark'>Back</StyledButton>
                 </Link>
 
                 <Carousel>
-                    {mockItem.image.map((src) => (
+                    {mockItem?.image.map((src) => 
                         <Carousel.Item key={src}>
                             <StyledImage
                                 src={src}
                                 alt={`${mockItem.title}-photo`}
                             />
                         </Carousel.Item>
-                    ))}
+                    )}
                 </Carousel>
 
                 <h2>{mockItem.title}</h2>
