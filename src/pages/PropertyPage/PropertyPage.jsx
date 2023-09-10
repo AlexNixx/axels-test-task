@@ -27,14 +27,14 @@ export const PropertyPage = () => {
                 <StyledButton variant='dark'>Back</StyledButton>
 
                 <Carousel>
-                    {mockItem?.image.map(src => 
+                    {mockItem?.image.map(src => (
                         <Carousel.Item key={src}>
                             <StyledImage
                                 src={src}
                                 alt={`${mockItem.title}-photo`}
                             />
                         </Carousel.Item>
-                    )}
+                    ))}
                 </Carousel>
 
                 <h2>{mockItem.title}</h2>
@@ -45,3 +45,5 @@ export const PropertyPage = () => {
         </StyledContainer>
     );
 };
+
+PropertyPage.propTypes = {};
