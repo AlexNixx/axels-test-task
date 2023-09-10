@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import { Carousel, Stack } from 'react-bootstrap';
 
 import {
@@ -12,9 +11,9 @@ import { convertToUSAPrice } from '../../utils/price/convertToUSAPrice';
 import { mockData } from '../../mockData/mockData';
 
 export const PropertyPage = () => {
-    const { id } = useParams();
+    const id = 1;
 
-    const mockItem = mockData.filter((item) => item.id === Number(id))[0];
+    const mockItem = mockData.filter(item => item.id === Number(id))[0];
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -25,12 +24,10 @@ export const PropertyPage = () => {
     return (
         <StyledContainer>
             <Stack gap={2}>
-                <Link to={'/'}>
-                    <StyledButton variant='dark'>Back</StyledButton>
-                </Link>
+                <StyledButton variant='dark'>Back</StyledButton>
 
                 <Carousel>
-                    {mockItem?.image.map((src) => 
+                    {mockItem?.image.map(src => 
                         <Carousel.Item key={src}>
                             <StyledImage
                                 src={src}

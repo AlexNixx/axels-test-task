@@ -1,4 +1,4 @@
-export const convertToUSAPrice = (price) => {
+export const convertToUSAPrice = price => {
     return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
