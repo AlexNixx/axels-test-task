@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Carousel, Stack } from 'react-bootstrap';
+import { Carousel, Col, Row } from 'react-bootstrap';
 
 import {
     StyledButton,
     StyledContainer,
     StyledImage
-} from './PropertyPageStyles';
+} from '../../styles/pages/PropertyPage/PropertyPageStyles';
 
 import { convertToUSAPrice } from '../../utils/price/convertToUSAPrice';
 import { mockData } from '../../mockData/mockData';
@@ -24,27 +24,29 @@ export const PropertyPage = () => {
 
     return (
         <StyledContainer>
-            <Stack gap={2}>
-                <Link to='/'>
-                    <StyledButton variant='dark'>Back</StyledButton>
-                </Link>
-
-                <Carousel>
-                    {mockItem?.image.map(src => (
-                        <Carousel.Item key={src}>
-                            <StyledImage
-                                src={src}
-                                alt={`${mockItem.title}-photo`}
-                            />
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
-
-                <h2>{mockItem.title}</h2>
-                <h5>Seller: {mockItem.seller}</h5>
-                <h6>Price: {convertToUSAPrice(mockItem.price)}</h6>
-                <p>{mockItem.description}</p>
-            </Stack>
+            <Link to='/'>
+                <StyledButton variant='dark'>Back</StyledButton>
+            </Link>
+            <Row>
+                <Col xs={12} lg={7}>
+                    <Carousel>
+                        {mockItem?.image.map(src => (
+                            <Carousel.Item key={src}>
+                                <StyledImage
+                                    src={src}
+                                    alt={`${mockItem.title}-photo`}
+                                />
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                </Col>
+                <Col>
+                    <h2>{mockItem.title}</h2>
+                    <h5>Seller: {mockItem.seller}</h5>
+                    <h6>Price: {convertToUSAPrice(mockItem.price)}</h6>
+                    <p>{mockItem.description}</p>
+                </Col>
+            </Row>
         </StyledContainer>
     );
 };

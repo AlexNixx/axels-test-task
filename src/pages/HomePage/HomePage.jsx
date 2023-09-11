@@ -1,13 +1,17 @@
 import { PropertyItem } from '../../components/PropertyItem/PropertyItem';
 import { mockData } from '../../mockData/mockData';
-import { StyledCol, StyledContainer, StyledRow } from './HomePageStyles';
+import {
+    StyledCol,
+    StyledContainer,
+    StyledRow
+} from '../../styles/pages/HomePage/HomePageStyles';
 
 export const HomePage = () => {
     return (
         <StyledContainer>
-            <StyledRow xs={1} md={2} lg={3} xl={4}>
+            <StyledRow>
                 {mockData?.map(property => (
-                    <StyledCol key={property.id}>
+                    <StyledCol xs={12} md={6} lg={4} xxl={3} key={property.id}>
                         <PropertyItem {...property} />
                     </StyledCol>
                 ))}
