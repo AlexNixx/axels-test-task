@@ -9,9 +9,10 @@ import {
 
 import { convertToUSAPrice } from '../../utils/price/convertToUSAPrice';
 import { mockData } from '../../mockData/mockData';
+import { Link, useParams } from 'react-router-dom';
 
 export const PropertyPage = () => {
-    const id = 1;
+    const { id } = useParams();
 
     const mockItem = mockData.filter(item => item.id === Number(id))[0];
 
@@ -24,7 +25,9 @@ export const PropertyPage = () => {
     return (
         <StyledContainer>
             <Stack gap={2}>
-                <StyledButton variant='dark'>Back</StyledButton>
+                <Link to='/'>
+                    <StyledButton variant='dark'>Back</StyledButton>
+                </Link>
 
                 <Carousel>
                     {mockItem?.image.map(src => (
