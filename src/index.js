@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { RouterProvider } from 'react-router-dom';
-import { router } from './shared/config';
-
 import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './shared/config';
 import { store } from './redux';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

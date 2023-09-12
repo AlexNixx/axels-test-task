@@ -3,7 +3,6 @@ import createSagaMiddleware from 'redux-saga';
 
 import propertiesReducer from './ducks/properties';
 import propertyReducer from './ducks/property';
-
 import { rootWatcher } from './rootWatcher';
 
 const sagaMiddleware = createSagaMiddleware();

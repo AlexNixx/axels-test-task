@@ -1,4 +1,4 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 export const FETCH_PROPERTIES = 'PROPERTIES/FETCH_PROPERTIES';
 export const SET_PROPERTIES = 'PROPERTIES/SET_PROPERTIES';

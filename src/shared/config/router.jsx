@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { HomePage, PropertyPage, NotFoundPage } from '../../pages';
+import { HomePage, NotFoundPage, PropertyPage } from '../../pages';
 
 export const router = createBrowserRouter([
     {

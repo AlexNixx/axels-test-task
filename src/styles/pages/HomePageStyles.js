@@ -1,5 +1,5 @@
+import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'react-bootstrap';
 
 export const StyledContainer = styled(Container)`
     padding: 2rem 1rem;

@@ -1,5 +1,6 @@
 {
     "extends": ["react-app", "react-app/jest"],
+    "plugins": ["simple-import-sort"],
     "rules": {
         "no-console": "warn",
         "no-alert": "warn",
@@ -7,7 +8,12 @@
         "max-lines": ["error", 1000],
         "max-lines-per-function": ["error", 100],
         "max-params": ["error", 7],
-        "max-len": ["error", { "code": 120 }],
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
         "prefer-const": [
             "error",
             {
@@ -15,16 +21,58 @@
                 "ignoreReadBeforeAssign": false
             }
         ],
-        "camelcase": ["error", { "properties": "always" }],
-        "comma-spacing": ["error", { "before": false, "after": true }],
+        "camelcase": [
+            "error",
+            {
+                "properties": "always"
+            }
+        ],
+        "comma-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
         "object-curly-spacing": ["warn", "always"],
         "space-before-blocks": "warn",
-        "arrow-spacing": ["error", { "before": true, "after": true }],
+        "arrow-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
         "space-infix-ops": "error",
         "comma-dangle": ["error", "never"],
         "semi": ["warn", "always"],
         "dot-notation": "error",
         "quotes": ["error", "single"],
-        "no-extra-parens": ["warn", "all", { "ignoreJSX": "all" }]
+        "no-extra-parens": [
+            "warn",
+            "all",
+            {
+                "ignoreJSX": "all"
+            }
+        ],
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                    // Packages `react` related packages come first.
+                    ["^react", "^@?\\w"],
+                    // Internal packages.
+                    ["^(@|components)(/.*|$)"],
+                    // Side effect imports.
+                    ["^\\u0000"],
+                    // Parent imports. Put `..` last.
+                    ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                    // Other relative imports. Put same-folder imports and `.` last.
+                    ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                    // Style imports.
+                    ["^.+\\.?(css)$"]
+                ]
+            }
+        ]
     }
 }

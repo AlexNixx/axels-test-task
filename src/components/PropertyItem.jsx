@@ -1,13 +1,12 @@
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+import { convertPrice } from '../shared/utils';
 import {
     StyledCard,
     StyledImage,
     StyledLink
 } from '../styles/component/PropertyItemStyles';
-
-import { convertPrice } from '../shared/utils';
 
 export const PropertyItem = ({ id, images, title, price, address }) => (
     <StyledLink to={`/property/${id}`}>

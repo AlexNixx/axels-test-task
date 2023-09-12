@@ -1,17 +1,15 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-
 import { Carousel, Col, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+
+import { fetchProperty } from '../redux/ducks/property';
+import { convertPrice } from '../shared/utils';
 import {
     StyledButton,
     StyledContainer,
     StyledImage
 } from '../styles/pages/PropertyPageStyles';
-
-import { fetchProperty } from '../redux/ducks/property';
-
-import { convertPrice } from '../shared/utils';
 
 export const PropertyPage = () => {
     const { id } = useParams();
