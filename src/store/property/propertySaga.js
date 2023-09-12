@@ -1,9 +1,7 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import {
-    FETCH_PROPERTY,
-    setError,
-    setProperty
-} from '../store/propertyReducer';
+
+import { FETCH_PROPERTY } from './propertyAction';
+import { setError, setProperty } from './propertyReducer';
 
 const fetchPropertyFromApi = id =>
     fetch(`${process.env.REACT_APP_BACKEND_URI}?id=${id}`);

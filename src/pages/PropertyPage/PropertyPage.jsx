@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
-import { Carousel, Col, Row } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { Carousel, Col, Row } from 'react-bootstrap';
 import {
     StyledButton,
     StyledContainer,
     StyledImage
-} from '../../shared/styles/pages/PropertyPage/PropertyPageStyles';
+} from '../../styles/pages/PropertyPage/PropertyPageStyles';
 
-import { convertToUSAPrice } from '../../shared/utils/price/convertToUSAPrice';
-import { Link, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProperty } from '../../store/propertyReducer';
+import { fetchProperty } from '../../store/property/propertyReducer';
+
+import { convertPrice } from '../../shared/utils/convertPrice/convertPrice';
 
 export const PropertyPage = () => {
     const { id } = useParams();
@@ -49,7 +50,7 @@ export const PropertyPage = () => {
                 <Col>
                     <h2>{property?.title}</h2>
                     <h5>Seller: {property?.seller}</h5>
-                    <h6>Price: {convertToUSAPrice(property?.price)}</h6>
+                    <h6>Price: {convertPrice(property?.price)}</h6>
                     <p>{property?.description}</p>
                 </Col>
             </Row>

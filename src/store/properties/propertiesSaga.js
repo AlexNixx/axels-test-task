@@ -1,9 +1,7 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import {
-    FETCH_PROPERTIES,
-    setError,
-    setProperties
-} from '../store/propertiesReducer';
+
+import { FETCH_PROPERTIES } from './propertiesActions';
+import { setError, setProperties } from './propertiesReducer';
 
 const fetchPropertiesFromApi = () => fetch(process.env.REACT_APP_BACKEND_URI);
 

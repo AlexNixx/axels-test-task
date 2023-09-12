@@ -1,12 +1,14 @@
+import {
+    FETCH_PROPERTIES,
+    SET_ERROR,
+    SET_PROPERTIES
+} from './propertiesActions';
+
 const defaultState = {
     properties: [],
     error: '',
     loading: false
 };
-
-export const FETCH_PROPERTIES = 'FETCH_PROPERTIES';
-export const SET_PROPERTIES = 'SET_PROPERTIES';
-export const SET_ERROR = 'SET_ERROR';
 
 export default function propertiesReducer(state = defaultState, action) {
     switch (action.type) {

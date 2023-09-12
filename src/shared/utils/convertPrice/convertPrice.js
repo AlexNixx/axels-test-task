@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-export const convertToUSAPrice = price =>
+export const convertPrice = price =>
     new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
     }).format(price);
 
-convertToUSAPrice.propTypes = {
+convertPrice.propTypes = {
     price: PropTypes.number
 };

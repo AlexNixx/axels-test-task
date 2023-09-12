@@ -1,11 +1,13 @@
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
 import {
     StyledCard,
     StyledImage,
     StyledLink
-} from '../../shared/styles/component/PropertyItem/PropertyItemStyles';
-import { convertToUSAPrice } from '../../shared/utils/price/convertToUSAPrice';
+} from '../../styles/component/PropertyItem/PropertyItemStyles';
+
+import { convertPrice } from '../../shared/utils/convertPrice/convertPrice';
 
 export const PropertyItem = ({ id, images, title, price, address }) => {
     return (
@@ -18,7 +20,7 @@ export const PropertyItem = ({ id, images, title, price, address }) => {
                 />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
-                    <Card.Subtitle>{convertToUSAPrice(price)}</Card.Subtitle>
+                    <Card.Subtitle>{convertPrice(price)}</Card.Subtitle>
                     <Card.Text>{address}</Card.Text>
                 </Card.Body>
             </StyledCard>
