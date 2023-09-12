@@ -1,4 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 
 import propertiesReducer from './ducks/properties';
@@ -15,3 +16,6 @@ const rootReducer = combineReducers({
 export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootWatcher);
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

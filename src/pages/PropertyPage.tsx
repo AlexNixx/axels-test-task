@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 import { fetchProperty } from '../redux/ducks/property';
+import { useAppDispatch, useAppSelector } from '../redux';
 import { convertPrice } from '../shared/utils';
 import {
     StyledButton,
@@ -14,13 +14,13 @@ import {
 export const PropertyPage = () => {
     const { id } = useParams();
 
-    const dispatch = useDispatch();
-    const property = useSelector(state => state.propertyReducer.property);
-    const error = useSelector(state => state.propertyReducer.error);
-    const loading = useSelector(state => state.propertyReducer.loading);
+    const dispatch = useAppDispatch();
+    const property = useAppSelector(state => state.propertyReducer.property);
+    const error = useAppSelector(state => state.propertyReducer.error);
+    const loading = useAppSelector(state => state.propertyReducer.loading);
 
     useEffect(() => {
-        dispatch(fetchProperty(id));
+        dispatch(fetchProperty(Number(id)));
     }, [dispatch, id]);
 
     if (loading) return <p>Loading...</p>;
@@ -55,5 +55,3 @@ export const PropertyPage = () => {
         </StyledContainer>
     );
 };
-
-PropertyPage.propTypes = {};

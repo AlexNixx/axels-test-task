@@ -1,5 +1,4 @@
 import { Card } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 import { convertPrice } from '../shared/utils';
 import {
@@ -8,7 +7,21 @@ import {
     StyledLink
 } from '../styles/component/PropertyItemStyles';
 
-export const PropertyItem = ({ id, images, title, price, address }) => (
+interface PropertyItemProps {
+    id: number;
+    images: string[];
+    title: string;
+    price: number;
+    address: string;
+}
+
+export const PropertyItem = ({
+    id,
+    images,
+    title,
+    price,
+    address
+}: PropertyItemProps) => (
     <StyledLink to={`/property/${id}`}>
         <StyledCard>
             <StyledImage
@@ -24,11 +37,3 @@ export const PropertyItem = ({ id, images, title, price, address }) => (
         </StyledCard>
     </StyledLink>
 );
-
-PropertyItem.propTypes = {
-    id: PropTypes.number,
-    images: PropTypes.array,
-    title: PropTypes.string,
-    price: PropTypes.number,
-    address: PropTypes.string
-};

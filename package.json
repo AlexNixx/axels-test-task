@@ -23,8 +23,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint:js": "prettier --check . && eslint \"**/*.{js,jsx}\"",
-        "lint:js:fix": "prettier --write . && eslint \"**/*.{js,jsx}\" --fix",
+        "lint:ts": "prettier --check . && eslint \"**/*.{ts,tsx}\"",
+        "lint:ts:fix": "prettier --write . && eslint \"**/*.{ts,tsx}\" --fix",
         "prepare": "husky install"
     },
     "browserslist": {
@@ -40,9 +40,19 @@
         ]
     },
     "devDependencies": {
+        "@redux-saga/types": "^1.2.1",
+        "@types/jest": "^29.5.4",
+        "@types/node": "^20.6.0",
+        "@types/react": "^18.2.21",
+        "@types/react-dom": "^18.2.7",
+        "@types/react-redux": "^7.1.26",
+        "@types/redux": "^3.6.0",
         "eslint": "^8.49.0",
         "husky": "^8.0.0",
         "prettier": "3.0.3",
-        "prop-types": "^15.8.1"
+        "typescript": "^5.0.0"
+    },
+    "overrides": {
+        "typescript": "^5.0.0"
     }
 }
