@@ -7,11 +7,11 @@ import {
     StyledButton,
     StyledContainer,
     StyledImage
-} from '../../styles/pages/PropertyPage/PropertyPageStyles';
+} from '../styles/pages/PropertyPageStyles';
 
-import { fetchProperty } from '../../store/property/propertyReducer';
+import { fetchProperty } from '../redux/ducks/property';
 
-import { convertPrice } from '../../shared/utils/convertPrice/convertPrice';
+import { convertPrice } from '../shared/utils';
 
 export const PropertyPage = () => {
     const { id } = useParams();

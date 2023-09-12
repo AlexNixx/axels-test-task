@@ -1,7 +1,7 @@
 import { all } from 'redux-saga/effects';
 
-import { propertiesWatcher } from './properties/propertiesSaga';
-import { propertyWatcher } from './property/propertySaga';
+import { propertiesWatcher } from './ducks/properties';
+import { propertyWatcher } from './ducks/property';
 
 export function* rootWatcher() {
     yield all([propertiesWatcher(), propertyWatcher()]);

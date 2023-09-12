@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { PropertyItem } from '../../components/PropertyItem/PropertyItem';
+import { PropertyItem } from '../components/PropertyItem';
 import {
     StyledCol,
     StyledContainer,
     StyledRow
-} from '../../styles/pages/HomePage/HomePageStyles';
+} from '../styles/pages/HomePageStyles';
 
-import { fetchProperties } from '../../store/properties/propertiesReducer';
+import { fetchProperties } from '../redux/ducks/properties';
 
 export const HomePage = () => {
     const dispatch = useDispatch();

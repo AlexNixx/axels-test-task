@@ -24,7 +24,8 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "lint:js": "prettier --check . && eslint \"**/*.{js,jsx}\"",
-        "lint:js:fix": "prettier --write . && eslint \"**/*.{js,jsx}\" --fix"
+        "lint:js:fix": "prettier --write . && eslint \"**/*.{js,jsx}\" --fix",
+        "prepare": "husky install"
     },
     "browserslist": {
         "production": [
@@ -41,6 +42,7 @@
     "devDependencies": {
         "eslint": "^8.49.0",
         "prettier": "3.0.3",
-        "prop-types": "^15.8.1"
+        "prop-types": "^15.8.1",
+        "husky": "^8.0.0"
     }
 }

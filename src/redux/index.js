@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-
-import propertiesReducer from './properties/propertiesReducer';
-import propertyReducer from './property/propertyReducer';
-
 import createSagaMiddleware from 'redux-saga';
+
+import propertiesReducer from './ducks/properties';
+import propertyReducer from './ducks/property';
+
 import { rootWatcher } from './rootWatcher';
 
 const sagaMiddleware = createSagaMiddleware();
