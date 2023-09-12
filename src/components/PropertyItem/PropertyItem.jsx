@@ -4,16 +4,16 @@ import {
     StyledCard,
     StyledImage,
     StyledLink
-} from '../../styles/component/PropertyItem/PropertyItemStyles';
-import { convertToUSAPrice } from '../../utils/price/convertToUSAPrice';
+} from '../../shared/styles/component/PropertyItem/PropertyItemStyles';
+import { convertToUSAPrice } from '../../shared/utils/price/convertToUSAPrice';
 
-export const PropertyItem = ({ id, image, title, price, address }) => {
+export const PropertyItem = ({ id, images, title, price, address }) => {
     return (
         <StyledLink to={`/property/${id}`}>
             <StyledCard>
                 <StyledImage
                     variant='top'
-                    src={image[0]}
+                    src={images[0]}
                     alt={`property ${title}`}
                 />
                 <Card.Body>
@@ -28,7 +28,7 @@ export const PropertyItem = ({ id, image, title, price, address }) => {
 
 PropertyItem.propTypes = {
     id: PropTypes.number,
-    image: PropTypes.string,
+    images: PropTypes.array,
     title: PropTypes.string,
     price: PropTypes.number,
     address: PropTypes.string

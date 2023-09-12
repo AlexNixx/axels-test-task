@@ -5,22 +5,28 @@ import {
     StyledButton,
     StyledContainer,
     StyledImage
-} from '../../styles/pages/PropertyPage/PropertyPageStyles';
+} from '../../shared/styles/pages/PropertyPage/PropertyPageStyles';
 
-import { convertToUSAPrice } from '../../utils/price/convertToUSAPrice';
-import { mockData } from '../../mockData/mockData';
+import { convertToUSAPrice } from '../../shared/utils/price/convertToUSAPrice';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProperty } from '../../store/propertyReducer';
 
 export const PropertyPage = () => {
     const { id } = useParams();
 
-    const mockItem = mockData.filter(item => item.id === Number(id))[0];
+    const dispatch = useDispatch();
+    const property = useSelector(state => state.propertyReducer.property);
+    const error = useSelector(state => state.propertyReducer.error);
+    const loading = useSelector(state => state.propertyReducer.loading);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    }, []);
+        dispatch(fetchProperty(id));
+    }, [dispatch, id]);
 
-    if (!mockItem) return <p>Property not found</p>;
+    if (loading) return <p>Loading...</p>;
+
+    if (error) return <p>{error}</p>;
 
     return (
         <StyledContainer>
@@ -30,21 +36,21 @@ export const PropertyPage = () => {
             <Row>
                 <Col xs={12} lg={7}>
                     <Carousel>
-                        {mockItem?.image.map(src => (
+                        {property?.images.map(src => (
                             <Carousel.Item key={src}>
                                 <StyledImage
                                     src={src}
-                                    alt={`${mockItem.title}-photo`}
+                                    alt={`${property?.title}-photo`}
                                 />
                             </Carousel.Item>
                         ))}
                     </Carousel>
                 </Col>
                 <Col>
-                    <h2>{mockItem.title}</h2>
-                    <h5>Seller: {mockItem.seller}</h5>
-                    <h6>Price: {convertToUSAPrice(mockItem.price)}</h6>
-                    <p>{mockItem.description}</p>
+                    <h2>{property?.title}</h2>
+                    <h5>Seller: {property?.seller}</h5>
+                    <h6>Price: {convertToUSAPrice(property?.price)}</h6>
+                    <p>{property?.description}</p>
                 </Col>
             </Row>
         </StyledContainer>
