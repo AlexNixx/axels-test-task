@@ -1,10 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
+import { fetchPropertiesFromApi } from '../../services/fetchProperties';
+
 export const FETCH_PROPERTIES = 'PROPERTIES/FETCH_PROPERTIES';
 export const SET_PROPERTIES = 'PROPERTIES/SET_PROPERTIES';
 export const SET_ERROR = 'PROPERTIES/SET_ERROR';
 
-type Property = {
+export type Property = {
     id: number;
     title: string;
     price: number;
@@ -14,15 +16,15 @@ type Property = {
     images: string[];
 };
 
-type PropertiesState = {
+export type PropertiesState = {
     properties: Property[];
-    error: string;
+    error: string | null;
     loading: boolean;
 };
 
-const defaultState: PropertiesState = {
+export const defaultState: PropertiesState = {
     properties: [],
-    error: '',
+    error: null,
     loading: false
 };
 
@@ -63,15 +65,7 @@ export const setError = (error: string): SetErrorAction => ({
     payload: error
 });
 
-const fetchPropertiesFromApi = async () => {
-    const response = await fetch(process.env.REACT_APP_BACKEND_URI);
-    if (!response.ok) {
-        throw new Error('Could not download the data');
-    }
-    return await response.json();
-};
-
-function* fetchPropertiesWorker() {
+export function* fetchPropertiesWorker() {
     try {
         const data: Property[] = yield call(fetchPropertiesFromApi);
         yield put(setProperties(data));

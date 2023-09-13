@@ -1,5 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
+import { fetchPropertyFromApi } from '../../services/fetchProperty';
+
 export const FETCH_PROPERTY = 'PROPERTY/FETCH_PROPERTY';
 export const SET_PROPERTY = 'PROPERTY/SET_PROPERTY';
 export const SET_ERROR = 'PROPERTY/SET_ERROR';
@@ -16,13 +18,13 @@ type Property = {
 
 type PropertyState = {
     property: Property | null;
-    error: string;
+    error: null | string;
     loading: boolean;
 };
 
-const defaultState: PropertyState = {
+export const defaultState: PropertyState = {
     property: null,
-    error: '',
+    error: null,
     loading: false
 };
 
@@ -64,17 +66,7 @@ export const setError = (error: string): SetErrorAction => ({
     payload: error
 });
 
-const fetchPropertyFromApi = async (id: number) => {
-    const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URI}?id=${id}`
-    );
-    if (!response.ok) {
-        throw new Error('Could not download the data');
-    }
-    return await response.json();
-};
-
-function* fetchPropertyWorker(action: FetchPropertyAction) {
+export function* fetchPropertyWorker(action: FetchPropertyAction) {
     try {
         const data: Property[] = yield call(
             fetchPropertyFromApi,
