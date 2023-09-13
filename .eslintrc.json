@@ -7,7 +7,12 @@
         "max-lines": ["error", 1000],
         "max-lines-per-function": ["error", 100],
         "max-params": ["error", 7],
-        "max-len": ["error", { "code": 120 }],
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
         "prefer-const": [
             "error",
             {
@@ -15,16 +20,39 @@
                 "ignoreReadBeforeAssign": false
             }
         ],
-        "camelcase": ["error", { "properties": "always" }],
-        "comma-spacing": ["error", { "before": false, "after": true }],
+        "camelcase": [
+            "error",
+            {
+                "properties": "always"
+            }
+        ],
+        "comma-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
         "object-curly-spacing": ["warn", "always"],
         "space-before-blocks": "warn",
-        "arrow-spacing": ["error", { "before": true, "after": true }],
+        "arrow-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
         "space-infix-ops": "error",
         "comma-dangle": ["error", "never"],
         "semi": ["warn", "always"],
         "dot-notation": "error",
         "quotes": ["error", "single"],
-        "no-extra-parens": ["warn", "all", { "ignoreJSX": "all" }]
+        "no-extra-parens": [
+            "warn",
+            "all",
+            {
+                "ignoreJSX": "all"
+            }
+        ]
     }
 }

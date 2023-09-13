@@ -1,8 +1,9 @@
-import styled from 'styled-components';
 import { Col, Container, Row } from 'react-bootstrap';
+import styled from 'styled-components';
 
 export const StyledContainer = styled(Container)`
-    padding: 1rem;
+    padding: 2rem 1rem;
+    overflow: hidden;
 `;
 
 export const StyledRow = styled(Row)`
