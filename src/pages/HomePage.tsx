@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { PropertyItem } from '../components/PropertyItem';
+
 import { fetchProperties } from '../redux/ducks/properties';
+import { useAppDispatch, useAppSelector } from '../redux';
 import {
     StyledCol,
     StyledContainer,
@@ -10,10 +11,12 @@ import {
 } from '../styles/pages/HomePageStyles';
 
 export const HomePage = () => {
-    const dispatch = useDispatch();
-    const properties = useSelector(state => state.propertiesReducer.properties);
-    const error = useSelector(state => state.propertiesReducer.error);
-    const loading = useSelector(state => state.propertiesReducer.loading);
+    const dispatch = useAppDispatch();
+    const properties = useAppSelector(
+        state => state.propertiesReducer.properties
+    );
+    const error = useAppSelector(state => state.propertiesReducer.error);
+    const loading = useAppSelector(state => state.propertiesReducer.loading);
 
     useEffect(() => {
         dispatch(fetchProperties());
@@ -35,5 +38,3 @@ export const HomePage = () => {
         </StyledContainer>
     );
 };
-
-HomePage.propTypes = {};
