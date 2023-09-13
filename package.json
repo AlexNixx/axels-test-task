@@ -21,7 +21,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test a",
         "eject": "react-scripts eject",
         "lint:ts": "prettier --check . && eslint \"**/*.{ts,tsx}\"",
         "lint:ts:fix": "prettier --write . && eslint \"**/*.{ts,tsx}\" --fix",
