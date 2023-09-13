@@ -74,11 +74,12 @@ const fetchPropertyFromApi = async (id: number) => {
     return await response.json();
 };
 
-function* fetchPropertyWorker(
-    action: FetchPropertyAction
-): Generator<any, void, any> {
+function* fetchPropertyWorker(action: FetchPropertyAction) {
     try {
-        const data = yield call(fetchPropertyFromApi, action.payload);
+        const data: Property[] = yield call(
+            fetchPropertyFromApi,
+            action.payload
+        );
         yield put(setProperty(data[0]));
     } catch (error) {
         yield put(setError(error.message));

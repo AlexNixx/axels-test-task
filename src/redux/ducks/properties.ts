@@ -71,9 +71,9 @@ const fetchPropertiesFromApi = async () => {
     return await response.json();
 };
 
-function* fetchPropertiesWorker(): Generator<any, void, any> {
+function* fetchPropertiesWorker() {
     try {
-        const data = yield call(fetchPropertiesFromApi);
+        const data: Property[] = yield call(fetchPropertiesFromApi);
         yield put(setProperties(data));
     } catch (error) {
         yield put(setError(error.message));
