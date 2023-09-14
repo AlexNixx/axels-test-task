@@ -1,10 +1,10 @@
+import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 import { convertPrice } from '../shared/utils';
 import {
     StyledCard,
-    StyledImage,
-    StyledLink
+    StyledImage
 } from '../styles/component/PropertyItemStyles';
 
 interface PropertyItemProps {
@@ -22,7 +22,7 @@ export const PropertyItem = ({
     price,
     address
 }: PropertyItemProps) => (
-    <StyledLink to={`/property/${id}`}>
+    <Link to={`/property/${id}`}>
         <StyledCard>
             <StyledImage
                 variant='top'
@@ -35,5 +35,5 @@ export const PropertyItem = ({
                 <Card.Text>{address}</Card.Text>
             </Card.Body>
         </StyledCard>
-    </StyledLink>
+    </Link>
 );

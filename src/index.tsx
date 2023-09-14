@@ -7,6 +7,7 @@ import { router } from './shared/config';
 import { store } from './redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test HomePageStyles Check StyledCol styles 1`] = `
+.c0 {
+  display: flex;
+  justify-content: center;
+}
+
+<div
+  className="c0 col"
+/>
+`;
+
+exports[`Test HomePageStyles Check StyledContainer styles 1`] = `
+.c0 {
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+<div
+  className="c0 container"
+/>
+`;
+
+exports[`Test HomePageStyles Check StyledRow styles 1`] = `
+.c0 {
+  row-gap: 2rem;
+}
+
+<div
+  className="c0 row"
+/>
+`;
