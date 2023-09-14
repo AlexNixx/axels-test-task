@@ -28,7 +28,7 @@ export const PropertyPage = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <StyledContainer>
+        <StyledContainer data-testid='propertyPage'>
             <Link to='/'>
                 <StyledButton variant='dark'>Back</StyledButton>
             </Link>

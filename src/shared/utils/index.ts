@@ -1,1 +1,2 @@
-export * from './convertPrice';
+export { renderWithProviders } from './test/renderWithProviders';
+export * from './convertPrice/convertPrice';

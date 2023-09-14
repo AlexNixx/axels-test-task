@@ -7,7 +7,7 @@ import {
     StyledImage
 } from '../styles/component/PropertyItemStyles';
 
-interface PropertyItemProps {
+export interface PropertyItemProps {
     id: number;
     images: string[];
     title: string;
@@ -22,17 +22,19 @@ export const PropertyItem = ({
     price,
     address
 }: PropertyItemProps) => (
-    <Link to={`/property/${id}`}>
-        <StyledCard>
+    <Link to={`/property/${id}`} data-testid='propertyLink'>
+        <StyledCard data-testid='propertyCard'>
             <StyledImage
                 variant='top'
                 src={images[0]}
                 alt={`property ${title}`}
             />
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Subtitle>{convertPrice(price)}</Card.Subtitle>
-                <Card.Text>{address}</Card.Text>
+                <Card.Title data-testid='cardTitle'>{title}</Card.Title>
+                <Card.Subtitle data-testid='cardPrice'>
+                    {convertPrice(price)}
+                </Card.Subtitle>
+                <Card.Text data-testid='cardAddress'>{address}</Card.Text>
             </Card.Body>
         </StyledCard>
     </Link>
