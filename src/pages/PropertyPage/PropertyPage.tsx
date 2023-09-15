@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-import { fetchProperty } from '../redux/ducks/property';
-import { useAppDispatch, useAppSelector } from '../redux';
-import { convertPrice } from '../shared/utils';
+import { fetchProperty } from '../../redux/ducks/property';
+import { useAppDispatch, useAppSelector } from '../../redux';
+import { convertPrice } from '../../shared/utils';
 import {
     StyledButton,
     StyledContainer,
     StyledImage
-} from '../styles/pages/PropertyPageStyles';
+} from '../../styles/pages/PropertyPageStyles';
 
 export const PropertyPage = () => {
     const { id } = useParams();

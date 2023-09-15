@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 
-import { PropertyItem } from '../components/PropertyItem';
+import { PropertyItem } from '../../components/PropertyItem';
 
-import { fetchProperties } from '../redux/ducks/properties';
-import { useAppDispatch, useAppSelector } from '../redux';
+import { fetchProperties } from '../../redux/ducks/properties';
+import { useAppDispatch, useAppSelector } from '../../redux';
 import {
     StyledCol,
     StyledContainer,
     StyledRow
-} from '../styles/pages/HomePageStyles';
+} from '../../styles/pages/HomePageStyles';
 
 export const HomePage = () => {
     const dispatch = useAppDispatch();
@@ -27,7 +27,7 @@ export const HomePage = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <StyledContainer>
+        <StyledContainer data-testid='homePage'>
             <StyledRow>
                 {properties?.map(property => (
                     <StyledCol xs={12} md={6} lg={4} xxl={3} key={property.id}>

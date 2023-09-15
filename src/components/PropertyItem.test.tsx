@@ -3,7 +3,11 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 import { PropertyItem, PropertyItemProps } from './PropertyItem';
-import { renderWithProviders, convertPrice } from '../shared/utils';
+import {
+    renderWithProviders,
+    convertPrice,
+    ShowLocation
+} from '../shared/utils';
 
 describe('Test PropertyItem Card', () => {
     let defaultProps: PropertyItemProps;
@@ -34,14 +38,12 @@ describe('Test PropertyItem Card', () => {
         expect(screen.getByTestId('cardTitle')).toContainHTML(
             defaultProps.title
         );
-
         expect(screen.getByTestId('cardPrice')).toContainHTML(
             convertPrice(defaultProps.price)
         );
         expect(screen.getByTestId('cardPrice')).not.toContainHTML(
             '' + defaultProps.price
         );
-
         expect(screen.getByTestId('cardAddress')).toContainHTML(
             defaultProps.address
         );
@@ -49,12 +51,18 @@ describe('Test PropertyItem Card', () => {
         expect(container).toMatchSnapshot();
     });
 
-    test('should go to the detail page', async () => {
-        renderWithProviders(<PropertyItem {...defaultProps} />);
+    test('should navigate to correct path details page', async () => {
+        const route = `/property/${defaultProps.id}`;
+        renderWithProviders(
+            <>
+                <ShowLocation />
+                <PropertyItem {...defaultProps} />
+            </>
+        );
 
         const propertyLink = screen.getByTestId('propertyLink');
         await act(async () => await userEvent.click(propertyLink));
 
-        expect(await screen.findByTestId('propertyPage')).toBeInTheDocument();
+        expect(screen.getByTestId('locationDisplay')).toHaveTextContent(route);
     });
 });

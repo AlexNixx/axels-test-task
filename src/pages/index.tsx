@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage } from './pages';
-import { PropertyPage } from './pages';
-import { NotFoundPage } from './pages';
+
+import { HomePage } from './HomePage/HomePage';
+import { PropertyPage } from './PropertyPage/PropertyPage';
+import { NotFoundPage } from './NotFoundPage/NotFoundPage';
 
 export const Routing = () => (
     <Routes>

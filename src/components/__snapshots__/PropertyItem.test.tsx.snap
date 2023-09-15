@@ -2,20 +2,17 @@
 
 exports[`Test PropertyItem Card should be filled with text 1`] = `
 <div>
-  <p>
-    Loading...
-  </p>
   <a
     data-testid="propertyLink"
     href="/property/1"
   >
     <div
-      class="sc-gKHVLF eNHRdE card"
+      class="sc-bcPKhP bZwkZu card"
       data-testid="propertyCard"
     >
       <img
         alt="property Property Title"
-        class="card-img-top sc-iBAaJG eaJrxQ"
+        class="card-img-top sc-grXZZQ dsaGvy"
         src="imageurl"
       />
       <div
