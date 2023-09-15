@@ -4,11 +4,7 @@ import { PropertyItem } from '../../components/PropertyItem';
 
 import { fetchProperties } from '../../redux/ducks/properties';
 import { useAppDispatch, useAppSelector } from '../../redux';
-import {
-    StyledCol,
-    StyledContainer,
-    StyledRow
-} from '../../styles/pages/HomePageStyles';
+import { StyledCol, HomeContainer, StyledRow } from '../../styles/pages';
 
 export const HomePage = () => {
     const dispatch = useAppDispatch();
@@ -27,7 +23,7 @@ export const HomePage = () => {
     if (error) return <p data-testid='errorText'>{error}</p>;
 
     return (
-        <StyledContainer data-testid='homePage'>
+        <HomeContainer data-testid='homePage'>
             <StyledRow>
                 {properties?.map(property => (
                     <StyledCol xs={12} md={6} lg={4} xxl={3} key={property.id}>
@@ -35,6 +31,6 @@ export const HomePage = () => {
                     </StyledCol>
                 ))}
             </StyledRow>
-        </StyledContainer>
+        </HomeContainer>
     );
 };

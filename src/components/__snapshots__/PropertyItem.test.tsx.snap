@@ -16,9 +16,9 @@ exports[`Test PropertyItem Card should be filled with text 1`] = `
       data-testid="propertyCard"
     >
       <img
-        alt="property Property Title"
+        alt="property Test Property"
         class="card-img-top sc-grXZZQ dsaGvy"
-        src="imageurl"
+        src="test.jpg"
       />
       <div
         class="card-body"
@@ -27,19 +27,19 @@ exports[`Test PropertyItem Card should be filled with text 1`] = `
           class="card-title h5"
           data-testid="cardTitle"
         >
-          Property Title
+          Test Property
         </div>
         <div
           class="card-subtitle h6"
           data-testid="cardPrice"
         >
-          $1,000.00
+          $100.00
         </div>
         <p
           class="card-text"
           data-testid="cardAddress"
         >
-          Address, Kyiv
+          123 Test St
         </p>
       </div>
     </div>

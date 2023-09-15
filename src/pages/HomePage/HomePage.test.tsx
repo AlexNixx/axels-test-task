@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 
 import { HomePage } from './HomePage';
 
-import { renderWithProviders } from '../../shared/utils';
+import { renderWithProviders, mockProperties } from '../../utils';
 import {
     fetchProperties,
     setError,
@@ -18,12 +18,12 @@ jest.mock('react-redux', () => ({
     useDispatch: () => mockDispatch
 }));
 
-describe('HomePage', () => {
+describe('Test Home Page', () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
 
-    test('displays loading state', () => {
+    test('should be display loading state', () => {
         store.dispatch(fetchProperties());
 
         renderWithProviders(<HomePage />, {});
@@ -32,7 +32,7 @@ describe('HomePage', () => {
         expect(screen.getByTestId('loadingText')).toBeInTheDocument();
     });
 
-    test('displays error state', async () => {
+    test('should be display error state', async () => {
         const errorMessage = 'An error occurred';
 
         store.dispatch(setError(errorMessage));
@@ -43,20 +43,8 @@ describe('HomePage', () => {
         expect(screen.getByTestId('errorText')).toContainHTML(errorMessage);
     });
 
-    test('renders properties', async () => {
-        const properties = [
-            {
-                id: 1,
-                title: 'Test Property',
-                price: 100,
-                address: '123 Test St',
-                seller: 'Test Seller',
-                description: 'Test Description',
-                images: ['test.jpg']
-            }
-        ];
-
-        store.dispatch(setProperties(properties));
+    test('should be display properties cards', async () => {
+        store.dispatch(setProperties(mockProperties));
         const { container } = renderWithProviders(<HomePage />, {});
 
         expect(screen.getByText(/Test Property/)).toBeInTheDocument();

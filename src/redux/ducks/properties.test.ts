@@ -1,3 +1,5 @@
+import { testSaga } from 'redux-saga-test-plan';
+
 import propertiesReducer, {
     FETCH_PROPERTIES,
     fetchProperties,
@@ -8,8 +10,9 @@ import propertiesReducer, {
     defaultState,
     fetchPropertiesWorker
 } from './properties';
-import { testSaga } from 'redux-saga-test-plan';
+
 import { fetchPropertiesFromApi } from '../../services/fetchProperties';
+import { mockProperties } from '../../utils';
 
 describe('Test Properties Action Creator', () => {
     test('should create an action with FETCH_PROPERTIES type', () => {
@@ -18,24 +21,15 @@ describe('Test Properties Action Creator', () => {
         };
         expect(fetchProperties()).toEqual(expectation);
     });
+
     test('should create an action with SET_PROPERTIES type', () => {
-        const properties = [
-            {
-                id: 1,
-                title: 'Title',
-                price: 1000,
-                address: 'Address',
-                seller: 'Seller Name',
-                description: 'description',
-                images: ['image-url']
-            }
-        ];
         const expectation = {
             type: SET_PROPERTIES,
-            payload: properties
+            payload: mockProperties
         };
-        expect(setProperties(properties)).toEqual(expectation);
+        expect(setProperties(mockProperties)).toEqual(expectation);
     });
+
     test('should create an action with SET_ERROR type', () => {
         const message = 'Data retrieval failure';
         const expectation = {
@@ -48,69 +42,38 @@ describe('Test Properties Action Creator', () => {
 
 describe('Test Properties Reducer', () => {
     test('should handle FETCH_PROPERTIES', () => {
-        expect(
-            propertiesReducer(defaultState, {
-                type: FETCH_PROPERTIES
-            })
-        ).toEqual({ ...defaultState, loading: true });
+        expect(propertiesReducer(defaultState, fetchProperties())).toEqual({
+            ...defaultState,
+            loading: true
+        });
     });
 
     test('should handle SET_ERROR', () => {
         const errorMessage = 'Error message';
 
-        expect(
-            propertiesReducer(defaultState, {
-                type: SET_ERROR,
-                payload: errorMessage
-            })
-        ).toEqual({ ...defaultState, error: errorMessage, loading: false });
+        expect(propertiesReducer(defaultState, setError(errorMessage))).toEqual(
+            { ...defaultState, error: errorMessage, loading: false }
+        );
     });
 
     test('should handle SET_PROPERTIES', () => {
-        const properties = [
-            {
-                id: 1,
-                title: 'Title',
-                price: 1000,
-                address: 'Address',
-                seller: 'Seller Name',
-                description: 'description',
-                images: ['image-url']
-            }
-        ];
-
         expect(
-            propertiesReducer(defaultState, {
-                type: SET_PROPERTIES,
-                payload: properties
-            })
-        ).toEqual({ ...defaultState, properties, loading: false });
+            propertiesReducer(defaultState, setProperties(mockProperties))
+        ).toEqual({ properties: mockProperties, loading: false, error: null });
     });
 });
 
 describe('Test Properties Saga', () => {
-    test('Success fetch properties', () => {
-        const properties = [
-            {
-                id: 1,
-                title: 'Title',
-                price: 1000,
-                address: 'Address',
-                seller: 'Seller Name',
-                description: 'description',
-                images: ['image-url']
-            }
-        ];
-
+    test('should successfully fetch the properties', () => {
         testSaga(fetchPropertiesWorker)
             .next()
             .call(fetchPropertiesFromApi)
-            .next(properties)
-            .put(setProperties(properties))
+            .next(mockProperties)
+            .put(setProperties(mockProperties))
             .next()
             .isDone();
     });
-    test('Failed fetch properties', () => {
+    test('should fail to fetch the properties', () => {
         const error = new Error('testError');
 
         testSaga(fetchPropertiesWorker)

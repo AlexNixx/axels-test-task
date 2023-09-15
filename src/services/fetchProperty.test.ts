@@ -1,54 +1,34 @@
 import { fetchPropertyFromApi } from './fetchProperty';
-import fetchMock from 'jest-fetch-mock';
+import { mockProperties } from '../utils';
 
-describe('fetchPropertyFromApi', () => {
-    beforeAll(() => {
-        fetchMock.enableMocks();
-    });
-
+describe('Test service for fetch property', () => {
     beforeEach(() => {
-        fetchMock.resetMocks();
+        jest.restoreAllMocks();
     });
 
-    afterAll(() => {
-        fetchMock.disableMocks();
-    });
-
-    test('should fetch property from the API', async () => {
-        const mockApiResponse = {
-            id: 1,
-            title: 'Cozy Apartment in the City Center',
-            price: 1200,
-            address: '123 Main Street, Kyiv, Ukraine',
-            seller: 'John Doe',
-            description:
-                'This cozy apartment is located in the heart of the city, close to ...!',
-            images: [
-                'https://media.istockphoto.com/id/1322575582/photo/exterior-view-of-...',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2QX3mmexpRD...',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87P2uJ3BtSk_...'
-            ]
-        };
-        fetchMock.mockResponseOnce(JSON.stringify(mockApiResponse));
-
-        const id = 1;
-
-        const property = await fetchPropertyFromApi(id);
-
-        expect(fetch).toHaveBeenCalledWith(
-            `${process.env.REACT_APP_BACKEND_URI}?id=${id}`
+    test('should successfully fetch the property from the API', async () => {
+        const mockFetchPromise = Promise.resolve(
+            new Response(JSON.stringify(mockProperties[0]))
         );
-        expect(fetch).toHaveBeenCalledTimes(1);
+        jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-        expect(property).toEqual(mockApiResponse);
-        expect(property.id).toEqual(mockApiResponse.id);
+        const property = await fetchPropertyFromApi(mockProperties[0].id);
+
+        expect(global.fetch).toHaveBeenCalledTimes(1);
+        expect(global.fetch).toHaveBeenCalledWith(
+            `${process.env.REACT_APP_BACKEND_URI}?id=${mockProperties[0].id}`
+        );
+        expect(property).toEqual(mockProperties[0]);
     });
 
-    test('should throw an error if the API call fails', async () => {
-        fetchMock.mockResponseOnce(JSON.stringify({}), { status: 404 });
-
-        await expect(fetchPropertyFromApi(1)).rejects.toThrow(
-            'Could not download the data'
+    test('should throw an error', async () => {
+        const mockFetchPromise = Promise.resolve(
+            new Response(JSON.stringify({}), { status: 500 })
         );
+        jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
+
+        await expect(
+            fetchPropertyFromApi(mockProperties[0].id)
+        ).rejects.toThrow('Could not download the data');
     });
 });

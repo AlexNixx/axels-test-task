@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage renders properties 1`] = `
+exports[`Test Home Page should be display properties cards 1`] = `
 <div>
   <div
-    class="sc-dkjKgF bJNlhS container"
+    class="sc-jSwlEQ ePyzur container"
     data-testid="homePage"
   >
     <div
-      class="sc-hLclGa exkczi row"
+      class="sc-gKHVLF eEIIgr row"
     >
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"

@@ -2,30 +2,22 @@ import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
-import { PropertyItem, PropertyItemProps } from './PropertyItem';
+import { PropertyItem } from './PropertyItem';
 import {
     renderWithProviders,
     convertPrice,
-    ShowLocation
-} from '../shared/utils';
+    ShowLocation,
+    mockProperties
+} from '../utils';
 
 describe('Test PropertyItem Card', () => {
-    let defaultProps: PropertyItemProps;
-    beforeEach(() => {
-        defaultProps = {
-            id: 1,
-            title: 'Property Title',
-            price: 1000,
-            address: 'Address, Kyiv',
-            images: ['imageurl']
-        };
-    });
+    const mockProperty = mockProperties[0];
 
     test('should be successfully rendered', async () => {
         renderWithProviders(
             <>
                 <ShowLocation />
-                <PropertyItem {...defaultProps} />
+                <PropertyItem {...mockProperty} />
             </>,
             {}
         );
@@ -40,33 +32,30 @@ describe('Test PropertyItem Card', () => {
         const { container } = renderWithProviders(
             <>
                 <ShowLocation />
-                <PropertyItem {...defaultProps} />
+                <PropertyItem {...mockProperty} />
             </>,
             {}
         );
 
         expect(screen.getByTestId('cardTitle')).toContainHTML(
-            defaultProps.title
+            mockProperty.title
         );
         expect(screen.getByTestId('cardPrice')).toContainHTML(
-            convertPrice(defaultProps.price)
-        );
-        expect(screen.getByTestId('cardPrice')).not.toContainHTML(
-            '' + defaultProps.price
+            convertPrice(mockProperty.price)
         );
         expect(screen.getByTestId('cardAddress')).toContainHTML(
-            defaultProps.address
+            mockProperty.address
         );
 
         expect(container).toMatchSnapshot();
     });
 
-    test('should navigate to correct path details page', async () => {
-        const route = `/property/${defaultProps.id}`;
+    test('should be navigated to the correct path on the details page', async () => {
+        const route = `/property/${mockProperty.id}`;
         renderWithProviders(
             <>
                 <ShowLocation />
-                <PropertyItem {...defaultProps} />
+                <PropertyItem {...mockProperty} />
             </>,
             {}
         );

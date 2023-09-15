@@ -1,7 +1,7 @@
 import { Button, Container, Image } from 'react-bootstrap';
 import styled from 'styled-components';
 
-export const StyledContainer = styled(Container)`
+export const PropertyContainer = styled(Container)`
     padding-top: 2rem;
     padding-bottom: 2rem;
 `;

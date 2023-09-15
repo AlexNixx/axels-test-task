@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 
 import { PropertyPage } from './PropertyPage';
 
-import { renderWithProviders } from '../../shared/utils';
+import { convertPrice, mockProperties, renderWithProviders } from '../../utils';
 import {
     fetchProperty,
     setError,
@@ -18,12 +18,12 @@ jest.mock('react-redux', () => ({
     useDispatch: () => mockDispatch
 }));
 
-describe('PropertyPage', () => {
+describe('Test Property Details Page', () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
 
-    test('displays loading state', () => {
+    test('should be display loading state', () => {
         store.dispatch(fetchProperty(1));
 
         renderWithProviders(<PropertyPage />, {});
@@ -32,7 +32,7 @@ describe('PropertyPage', () => {
         expect(screen.getByTestId('loadingText')).toBeInTheDocument();
     });
 
-    test('displays error state', async () => {
+    test('should be display error state', async () => {
         const errorMessage = 'An error occurred';
 
         store.dispatch(setError(errorMessage));
@@ -43,21 +43,32 @@ describe('PropertyPage', () => {
         expect(screen.getByTestId('errorText')).toContainHTML(errorMessage);
     });
 
-    test('renders property', async () => {
-        store.dispatch(
-            setProperty({
-                id: 1,
-                title: 'Test Property',
-                price: 100,
-                address: '123 Test St',
-                seller: 'Test Seller',
-                description: 'Test Description',
-                images: ['test.jpg']
-            })
-        );
+    test('should be display properties details', async () => {
+        const mockProperty = mockProperties[0];
+
+        store.dispatch(setProperty(mockProperty));
         const { container } = renderWithProviders(<PropertyPage />, {});
 
-        expect(screen.getByText(/Test Property/)).toBeInTheDocument();
+        expect(screen.getByTestId('propertyTitle')).toBeInTheDocument();
+        expect(screen.getByTestId('propertyTitle')).toContainHTML(
+            mockProperty.title
+        );
+
+        expect(screen.getByTestId('propertySeller')).toBeInTheDocument();
+        expect(screen.getByTestId('propertySeller')).toContainHTML(
+            `Seller: ${mockProperty.seller}`
+        );
+
+        expect(screen.getByTestId('propertyPrice')).toBeInTheDocument();
+        expect(screen.getByTestId('propertyPrice')).toContainHTML(
+            `Price: ${convertPrice(mockProperty.price)}`
+        );
+
+        expect(screen.getByTestId('propertyDescription')).toBeInTheDocument();
+        expect(screen.getByTestId('propertyDescription')).toContainHTML(
+            mockProperty.description
+        );
+
         expect(container).toMatchSnapshot();
     });
 });

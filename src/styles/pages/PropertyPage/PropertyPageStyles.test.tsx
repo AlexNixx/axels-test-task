@@ -3,19 +3,19 @@ import 'jest-styled-components';
 
 import {
     StyledButton,
-    StyledContainer,
+    PropertyContainer,
     StyledImage
 } from './PropertyPageStyles';
 
 describe('Test PropertyPageStyles', () => {
-    test('Check StyledContainer styles', () => {
-        const tree = renderer.create(<StyledContainer />).toJSON();
+    test('should contain the styles PropertyContainer', () => {
+        const tree = renderer.create(<PropertyContainer />).toJSON();
         expect(tree).toHaveStyleRule('padding-top', '2rem');
         expect(tree).toHaveStyleRule('padding-bottom', '2rem');
         expect(tree).toMatchSnapshot();
     });
 
-    test('Check StyledImage styles', () => {
+    test('should contain the styles StyledImage', () => {
         const tree = renderer.create(<StyledImage />).toJSON();
         expect(tree).toHaveStyleRule('width', '100%');
         expect(tree).toHaveStyleRule('max-height', '30rem');
@@ -23,7 +23,7 @@ describe('Test PropertyPageStyles', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    test('Check StyledButton styles', () => {
+    test('should contain the styles StyledButton', () => {
         const tree = renderer.create(<StyledButton />).toJSON();
         expect(tree).toHaveStyleRule('width', '10rem');
         expect(tree).toHaveStyleRule('margin-bottom', '2rem');

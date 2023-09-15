@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 
-export const StyledContainer = styled(Container)`
+export const HomeContainer = styled(Container)`
     padding: 2rem 1rem;
     overflow: hidden;
 `;

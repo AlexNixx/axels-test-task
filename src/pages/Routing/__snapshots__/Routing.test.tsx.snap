@@ -8,14 +8,14 @@ exports[`Test App Routing landing on Home Page 1`] = `
     /
   </div>
   <div
-    class="sc-dkjKgF bJNlhS container"
+    class="sc-jSwlEQ ePyzur container"
     data-testid="homePage"
   >
     <div
-      class="sc-hLclGa exkczi row"
+      class="sc-gKHVLF eEIIgr row"
     >
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -56,7 +56,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -97,7 +97,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -138,7 +138,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -179,7 +179,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -220,7 +220,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -261,7 +261,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -302,7 +302,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -343,7 +343,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -384,7 +384,7 @@ exports[`Test App Routing landing on Home Page 1`] = `
         </a>
       </div>
       <div
-        class="sc-eDnVMP PJtZF col-xxl-3 col-lg-4 col-md-6 col-12"
+        class="sc-iBAaJG clwkyP col-xxl-3 col-lg-4 col-md-6 col-12"
       >
         <a
           data-testid="propertyLink"
@@ -437,14 +437,14 @@ exports[`Test App Routing landing on Property Details page 1`] = `
     /property/2
   </div>
   <div
-    class="sc-jSwlEQ jHhPKX container"
+    class="sc-dkjKgF hkMOcG container"
     data-testid="propertyPage"
   >
     <a
       href="/"
     >
       <button
-        class="sc-iBAaJG cVWAse btn btn-dark"
+        class="sc-eDnVMP hlhphY btn btn-dark"
         type="button"
       >
         Back
@@ -490,7 +490,7 @@ exports[`Test App Routing landing on Property Details page 1`] = `
             >
               <img
                 alt="Cozy Apartment in the City Center-photo"
-                class="sc-gKHVLF ZcrwJ"
+                class="sc-hLclGa ccoZNc"
                 src="https://media.istockphoto.com/id/1322575582/photo/exterior-view-of-modern-apartment-building-offering-luxury-rental-units-in-silicon-valley.jpg?s=170667a&w=0&k=20&c=aL9w8U5MHZHJnsxMo3n6Nqo1rKNQSkW-gy-qd5NA8X8="
               />
             </div>
@@ -499,7 +499,7 @@ exports[`Test App Routing landing on Property Details page 1`] = `
             >
               <img
                 alt="Cozy Apartment in the City Center-photo"
-                class="sc-gKHVLF ZcrwJ"
+                class="sc-hLclGa ccoZNc"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2QX3mmexpRDhi6LgigPXGLCrLp-ZuSfAi--kI9xURmgfBrKlW_zFQ8Y0IzAqNkAjA5Q&usqp=CAU"
               />
             </div>
@@ -508,7 +508,7 @@ exports[`Test App Routing landing on Property Details page 1`] = `
             >
               <img
                 alt="Cozy Apartment in the City Center-photo"
-                class="sc-gKHVLF ZcrwJ"
+                class="sc-hLclGa ccoZNc"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ87P2uJ3BtSk_RMFepl8YInCagx9togVrSW3q9Z8qs56CJn-oXQ1WhVPaE-Lmx23dnvtI&usqp=CAU"
               />
             </div>
@@ -550,18 +550,26 @@ exports[`Test App Routing landing on Property Details page 1`] = `
       <div
         class="col"
       >
-        <h2>
+        <h2
+          data-testid="propertyTitle"
+        >
           Cozy Apartment in the City Center
         </h2>
-        <h5>
+        <h5
+          data-testid="propertySeller"
+        >
           Seller: 
           John Doe
         </h5>
-        <h6>
+        <h6
+          data-testid="propertyPrice"
+        >
           Price: 
           $1,200.00
         </h6>
-        <p>
+        <p
+          data-testid="propertyDescription"
+        >
           This cozy apartment is located in the heart of the city, close to all amenities and attractions. It features a spacious living room, a fully equipped kitchen, and a comfortable bedroom. The perfect place for your next stay in Kyiv!
         </p>
       </div>

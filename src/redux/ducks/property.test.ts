@@ -10,7 +10,9 @@ import propertyReducer, {
     defaultState,
     fetchPropertyWorker
 } from './property';
+
 import { fetchPropertyFromApi } from '../../services/fetchProperty';
+import { mockProperties } from '../../utils';
 
 describe('Test Properties Action Creator', () => {
     test('should create an action with FETCH_PROPERTY type', () => {
@@ -23,21 +25,11 @@ describe('Test Properties Action Creator', () => {
     });
 
     test('should create an action with SET_PROPERTY type', () => {
-        const property = {
-            id: 1,
-            title: 'Title',
-            price: 1000,
-            address: 'Address',
-            seller: 'Seller Name',
-            description: 'description',
-            images: ['image-url']
-        };
-
         const expectation = {
             type: SET_PROPERTY,
-            payload: property
+            payload: mockProperties[0]
         };
-        expect(setProperty(property)).toEqual(expectation);
+        expect(setProperty(mockProperties[0])).toEqual(expectation);
     });
 
     test('should create an action with SET_ERROR type', () => {
@@ -53,76 +45,47 @@ describe('Test Properties Action Creator', () => {
 describe('Test Property Reducer', () => {
     test('should handle FETCH_PROPERTY', () => {
         expect(
-            propertyReducer(defaultState, {
-                type: FETCH_PROPERTY,
-                payload: 1
-            })
+            propertyReducer(defaultState, fetchProperty(mockProperties[0].id))
         ).toEqual({ ...defaultState, loading: true });
     });
 
     test('should handle SET_ERROR', () => {
         const errorMessage = 'Error message';
 
-        expect(
-            propertyReducer(defaultState, {
-                type: SET_ERROR,
-                payload: errorMessage
-            })
-        ).toEqual({ ...defaultState, error: errorMessage, loading: false });
+        expect(propertyReducer(defaultState, setError(errorMessage))).toEqual({
+            ...defaultState,
+            error: errorMessage,
+            loading: false
+        });
     });
 
     test('should handle SET_PROPERTY', () => {
-        const property = {
-            id: 1,
-            title: 'Title',
-            price: 1000,
-            address: 'Address',
-            seller: 'Seller Name',
-            description: 'description',
-            images: ['image-url']
-        };
-
         expect(
-            propertyReducer(defaultState, {
-                type: SET_PROPERTY,
-                payload: property
-            })
-        ).toEqual({ ...defaultState, property, loading: false });
+            propertyReducer(defaultState, setProperty(mockProperties[0]))
+        ).toEqual({
+            property: mockProperties[0],
+            loading: false,
+            error: null
+        });
     });
 });
 
 describe('Test Property Saga', () => {
-    test('Success fetch property', () => {
-        const property = [
-            {
-                id: 1,
-                title: 'Title',
-                price: 1000,
-                address: 'Address',
-                seller: 'Seller Name',
-                description: 'description',
-                images: ['image-url']
-            }
-        ];
-
-        const propertyId = 1;
-
-        testSaga(fetchPropertyWorker, fetchProperty(propertyId))
+    test('should successfully fetch the property', () => {
+        testSaga(fetchPropertyWorker, fetchProperty(mockProperties[0].id))
             .next()
-            .call(fetchPropertyFromApi, propertyId)
-            .next(property)
-            .put(setProperty(property[0]))
+            .call(fetchPropertyFromApi, mockProperties[0].id)
+            .next(mockProperties)
+            .put(setProperty(mockProperties[0]))
             .next()
             .isDone();
     });
-    test('Failed fetch property', () => {
+    test('should fail to fetch the property', () => {
         const error = new Error('testError');
 
-        const propertyId = 1;
-
-        testSaga(fetchPropertyWorker, fetchProperty(propertyId))
+        testSaga(fetchPropertyWorker, fetchProperty(mockProperties[0].id))
             .next()
-            .call(fetchPropertyFromApi, propertyId)
+            .call(fetchPropertyFromApi, mockProperties[0].id)
             .throw(error)
             .put(setError(error.message))
             .next()

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test PropertyItemStyles Check StyledCart styles 1`] = `
+exports[`Test PropertyItemStyles should contain the styles StyledCart 1`] = `
 .c0 {
   height: 20rem;
   overflow: hidden;
@@ -11,7 +11,7 @@ exports[`Test PropertyItemStyles Check StyledCart styles 1`] = `
 />
 `;
 
-exports[`Test PropertyItemStyles Check StyledImage styles 1`] = `
+exports[`Test PropertyItemStyles should contain the styles StyledImage 1`] = `
 .c0 {
   height: 10rem;
   width: 100%;

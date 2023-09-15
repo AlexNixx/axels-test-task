@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
-import { convertPrice } from '../shared/utils';
+import { convertPrice } from '../utils';
 import {
     StyledCard,
     StyledImage

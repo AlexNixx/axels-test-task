@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PropertyPage renders property 1`] = `
+exports[`Test Property Details Page should be display properties details 1`] = `
 <div>
   <div
     class="sc-bcPKhP ftJLmf container"
@@ -86,18 +86,26 @@ exports[`PropertyPage renders property 1`] = `
       <div
         class="col"
       >
-        <h2>
+        <h2
+          data-testid="propertyTitle"
+        >
           Test Property
         </h2>
-        <h5>
+        <h5
+          data-testid="propertySeller"
+        >
           Seller: 
           Test Seller
         </h5>
-        <h6>
+        <h6
+          data-testid="propertyPrice"
+        >
           Price: 
           $100.00
         </h6>
-        <p>
+        <p
+          data-testid="propertyDescription"
+        >
           Test Description
         </p>
       </div>

@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { Routing } from './index';
+import { Routing } from './Routing';
 
-import { renderWithProviders, ShowLocation } from '../shared/utils';
+import { renderWithProviders, ShowLocation } from '../../utils';
 
 describe('Test App Routing', () => {
     test('landing on Home Page', async () => {
