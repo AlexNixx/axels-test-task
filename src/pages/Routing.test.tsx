@@ -13,7 +13,7 @@ describe('Test App Routing', () => {
                 <ShowLocation />
                 <Routing />
             </>,
-            homeRoute
+            { initialRoute: homeRoute }
         );
 
         expect(await screen.findByTestId('homePage')).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('Test App Routing', () => {
                 <ShowLocation />
                 <Routing />
             </>,
-            propertyRoute
+            { initialRoute: propertyRoute }
         );
 
         expect(await screen.findByTestId('propertyPage')).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('Test App Routing', () => {
                 <ShowLocation />
                 <Routing />
             </>,
-            badRoute
+            { initialRoute: badRoute }
         );
 
         expect(screen.getByTestId('notFoundPage')).toBeInTheDocument();

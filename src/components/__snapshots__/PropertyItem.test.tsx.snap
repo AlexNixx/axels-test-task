@@ -2,6 +2,11 @@
 
 exports[`Test PropertyItem Card should be filled with text 1`] = `
 <div>
+  <div
+    data-testid="locationDisplay"
+  >
+    /
+  </div>
   <a
     data-testid="propertyLink"
     href="/property/1"

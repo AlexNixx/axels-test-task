@@ -32,7 +32,7 @@ type FetchPropertyAction = { type: typeof FETCH_PROPERTY; payload: number };
 type SetPropertyAction = { type: typeof SET_PROPERTY; payload: Property };
 type SetErrorAction = { type: typeof SET_ERROR; payload: string };
 
-type PropertyActionTypes =
+export type PropertyActionTypes =
     | FetchPropertyAction
     | SetPropertyAction
     | SetErrorAction;
@@ -45,7 +45,11 @@ export default function propertyReducer(
         case FETCH_PROPERTY:
             return { ...state, loading: true, error: null };
         case SET_PROPERTY:
-            return { ...state, property: action.payload, loading: false };
+            return {
+                property: action.payload,
+                loading: false,
+                error: null
+            };
         case SET_ERROR:
             return { ...state, error: action.payload, loading: false };
         default:

@@ -22,9 +22,9 @@ export const HomePage = () => {
         dispatch(fetchProperties());
     }, [dispatch]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p data-testid='loadingText'>Loading...</p>;
 
-    if (error) return <p>{error}</p>;
+    if (error) return <p data-testid='errorText'>{error}</p>;
 
     return (
         <StyledContainer data-testid='homePage'>

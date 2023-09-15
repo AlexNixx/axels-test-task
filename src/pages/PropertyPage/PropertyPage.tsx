@@ -23,9 +23,9 @@ export const PropertyPage = () => {
         dispatch(fetchProperty(Number(id)));
     }, [dispatch, id]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p data-testid='loadingText'>Loading...</p>;
 
-    if (error) return <p>{error}</p>;
+    if (error) return <p data-testid='errorText'>{error}</p>;
 
     return (
         <StyledContainer data-testid='propertyPage'>

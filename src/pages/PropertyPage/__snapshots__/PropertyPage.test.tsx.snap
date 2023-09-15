@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyPage renders property 1`] = `
+<div>
+  <div
+    class="sc-bcPKhP ftJLmf container"
+    data-testid="propertyPage"
+  >
+    <a
+      href="/"
+    >
+      <button
+        class="sc-dkjKgF lYdyv btn btn-dark"
+        type="button"
+      >
+        Back
+      </button>
+    </a>
+    <div
+      class="row"
+    >
+      <div
+        class="col-lg-7 col-12"
+      >
+        <div
+          class="carousel slide"
+        >
+          <div
+            class="carousel-indicators"
+          >
+            <button
+              aria-current="true"
+              aria-label="Slide 1"
+              class="active"
+              data-bs-target=""
+              type="button"
+            />
+          </div>
+          <div
+            class="carousel-inner"
+          >
+            <div
+              class="active carousel-item"
+            >
+              <img
+                alt="Test Property-photo"
+                class="sc-grXZZQ eZoUFJ"
+                src="test.jpg"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              aria-hidden="true"
+              class="carousel-control-prev-icon"
+            />
+            <span
+              class="visually-hidden"
+            >
+              Previous
+            </span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              aria-hidden="true"
+              class="carousel-control-next-icon"
+            />
+            <span
+              class="visually-hidden"
+            >
+              Next
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        class="col"
+      >
+        <h2>
+          Test Property
+        </h2>
+        <h5>
+          Seller: 
+          Test Seller
+        </h5>
+        <h6>
+          Price: 
+          $100.00
+        </h6>
+        <p>
+          Test Description
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

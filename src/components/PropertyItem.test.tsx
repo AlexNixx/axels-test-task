@@ -22,7 +22,13 @@ describe('Test PropertyItem Card', () => {
     });
 
     test('should be successfully rendered', async () => {
-        renderWithProviders(<PropertyItem {...defaultProps} />);
+        renderWithProviders(
+            <>
+                <ShowLocation />
+                <PropertyItem {...defaultProps} />
+            </>,
+            {}
+        );
 
         expect(screen.getByTestId('propertyCard')).toBeInTheDocument();
         expect(screen.getByTestId('cardTitle')).toBeInTheDocument();
@@ -32,7 +38,11 @@ describe('Test PropertyItem Card', () => {
 
     test('should be filled with text', async () => {
         const { container } = renderWithProviders(
-            <PropertyItem {...defaultProps} />
+            <>
+                <ShowLocation />
+                <PropertyItem {...defaultProps} />
+            </>,
+            {}
         );
 
         expect(screen.getByTestId('cardTitle')).toContainHTML(
@@ -57,7 +67,8 @@ describe('Test PropertyItem Card', () => {
             <>
                 <ShowLocation />
                 <PropertyItem {...defaultProps} />
-            </>
+            </>,
+            {}
         );
 
         const propertyLink = screen.getByTestId('propertyLink');
