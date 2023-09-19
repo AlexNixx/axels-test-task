@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test PropertyItemStyles should contain the styles StyledCart 1`] = `
+.c0 {
+  height: 20rem;
+  overflow: hidden;
+}
+
+<div
+  className="c0 card"
+/>
+`;
+
+exports[`Test PropertyItemStyles should contain the styles StyledImage 1`] = `
+.c0 {
+  height: 10rem;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.25s;
+}
+
+.c0:hover {
+  transform: scale(1.05);
+}
+
+<img
+  className="card-img c0"
+/>
+`;

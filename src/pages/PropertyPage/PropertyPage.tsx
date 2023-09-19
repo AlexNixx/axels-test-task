@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-import { fetchProperty } from '../redux/ducks/property';
-import { useAppDispatch, useAppSelector } from '../redux';
-import { convertPrice } from '../shared/utils';
+import { fetchProperty } from '../../redux/ducks/property';
+import { useAppDispatch, useAppSelector } from '../../redux';
+import { convertPrice } from '../../utils';
 import {
     StyledButton,
-    StyledContainer,
+    PropertyContainer,
     StyledImage
-} from '../styles/pages/PropertyPageStyles';
+} from '../../styles/pages';
 
 export const PropertyPage = () => {
     const { id } = useParams();
@@ -23,12 +23,12 @@ export const PropertyPage = () => {
         dispatch(fetchProperty(Number(id)));
     }, [dispatch, id]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p data-testid='loadingText'>Loading...</p>;
 
-    if (error) return <p>{error}</p>;
+    if (error) return <p data-testid='errorText'>{error}</p>;
 
     return (
-        <StyledContainer>
+        <PropertyContainer data-testid='propertyPage'>
             <Link to='/'>
                 <StyledButton variant='dark'>Back</StyledButton>
             </Link>
@@ -46,12 +46,18 @@ export const PropertyPage = () => {
                     </Carousel>
                 </Col>
                 <Col>
-                    <h2>{property?.title}</h2>
-                    <h5>Seller: {property?.seller}</h5>
-                    <h6>Price: {convertPrice(property?.price)}</h6>
-                    <p>{property?.description}</p>
+                    <h2 data-testid='propertyTitle'>{property?.title}</h2>
+                    <h5 data-testid='propertySeller'>
+                        Seller: {property?.seller}
+                    </h5>
+                    <h6 data-testid='propertyPrice'>
+                        Price: {convertPrice(property?.price)}
+                    </h6>
+                    <p data-testid='propertyDescription'>
+                        {property?.description}
+                    </p>
                 </Col>
             </Row>
-        </StyledContainer>
+        </PropertyContainer>
     );
 };

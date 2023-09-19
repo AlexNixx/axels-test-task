@@ -1,14 +1,10 @@
 import { useEffect } from 'react';
 
-import { PropertyItem } from '../components/PropertyItem';
+import { PropertyItem } from '../../components/PropertyItem';
 
-import { fetchProperties } from '../redux/ducks/properties';
-import { useAppDispatch, useAppSelector } from '../redux';
-import {
-    StyledCol,
-    StyledContainer,
-    StyledRow
-} from '../styles/pages/HomePageStyles';
+import { fetchProperties } from '../../redux/ducks/properties';
+import { useAppDispatch, useAppSelector } from '../../redux';
+import { StyledCol, HomeContainer, StyledRow } from '../../styles/pages';
 
 export const HomePage = () => {
     const dispatch = useAppDispatch();
@@ -22,12 +18,12 @@ export const HomePage = () => {
         dispatch(fetchProperties());
     }, [dispatch]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p data-testid='loadingText'>Loading...</p>;
 
-    if (error) return <p>{error}</p>;
+    if (error) return <p data-testid='errorText'>{error}</p>;
 
     return (
-        <StyledContainer>
+        <HomeContainer data-testid='homePage'>
             <StyledRow>
                 {properties?.map(property => (
                     <StyledCol xs={12} md={6} lg={4} xxl={3} key={property.id}>
@@ -35,6 +31,6 @@ export const HomePage = () => {
                     </StyledCol>
                 ))}
             </StyledRow>
-        </StyledContainer>
+        </HomeContainer>
     );
 };

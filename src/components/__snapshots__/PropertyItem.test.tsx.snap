@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test PropertyItem Card should be filled with text 1`] = `
+<div>
+  <div
+    data-testid="locationDisplay"
+  >
+    /
+  </div>
+  <a
+    data-testid="propertyLink"
+    href="/property/1"
+  >
+    <div
+      class="sc-bcPKhP bZwkZu card"
+      data-testid="propertyCard"
+    >
+      <img
+        alt="property Test Property"
+        class="card-img-top sc-grXZZQ dsaGvy"
+        src="test.jpg"
+      />
+      <div
+        class="card-body"
+      >
+        <div
+          class="card-title h5"
+          data-testid="cardTitle"
+        >
+          Test Property
+        </div>
+        <div
+          class="card-subtitle h6"
+          data-testid="cardPrice"
+        >
+          $100.00
+        </div>
+        <p
+          class="card-text"
+          data-testid="cardAddress"
+        >
+          123 Test St
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
+`;
